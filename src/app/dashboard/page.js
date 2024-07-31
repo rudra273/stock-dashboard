@@ -1,10 +1,9 @@
 
-"use client"; // Ensure this component is treated as a Client Component
+"use client"; 
 
 import React, { useEffect, useState } from 'react';
 import StockDashboard from '../../components/StockDashboard';
 
-// Fetch stock data function
 async function fetchStockData() {
   try {
     const response = await fetch('http://127.0.0.1:8000/api/stock-data-db/');
@@ -12,10 +11,10 @@ async function fetchStockData() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    console.log('Fetched stock data:', data); // Log the data
+    console.log('Fetched stock data:', data); 
     return data;
   } catch (error) {
-    console.error('Error fetching stock data:', error.message); // Log detailed error
+    console.error('Error fetching stock data:', error.message); 
     throw error;
   }
 }
@@ -30,7 +29,7 @@ const DashboardPage = () => {
         const data = await fetchStockData();
         setStocks(data);
       } catch (error) {
-        console.error('Error fetching stock data:', error.message); // Log detailed error
+        console.error('Error fetching stock data:', error.message); 
         setError('Failed to fetch stock data');
       }
     };
@@ -53,3 +52,4 @@ const DashboardPage = () => {
 };
 
 export default DashboardPage;
+
