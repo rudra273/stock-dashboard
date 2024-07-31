@@ -3,7 +3,7 @@
 import React from 'react';
 
 const StockDashboard = ({ stocks }) => {
-  console.log('Stocks in StockDashboard:', stocks); // Log the stocks data
+  console.log('Stocks in StockDashboard:', stocks);
 
   const getColor = (percentage) => {
     return percentage >= 0 ? 'text-green-500' : 'text-red-500';
