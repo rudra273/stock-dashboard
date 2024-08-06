@@ -87,10 +87,7 @@ const StockDashboard = ({ stocks }) => {
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Market Cap</th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Open</th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Current Price</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Daily Change</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Weekly Change</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Monthly Change</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Yearly Change</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Change %</th> 
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
@@ -103,15 +100,7 @@ const StockDashboard = ({ stocks }) => {
               <td className={`px-6 py-4 whitespace-nowrap text-sm ${getColor(stock.PercentageChange)}`}>
                 {stock.PercentageChange.toFixed(2)}%
               </td>
-              <td className={`px-6 py-4 whitespace-nowrap text-sm ${getColor(calculatePercentageChange(stock.CurrentPrice, stock.WeeklyLow))}`}>
-                {calculatePercentageChange(stock.CurrentPrice, stock.WeeklyLow).toFixed(2)}%
-              </td>
-              <td className={`px-6 py-4 whitespace-nowrap text-sm ${getColor(calculatePercentageChange(stock.CurrentPrice, stock.MonthlyLow))}`}>
-                {calculatePercentageChange(stock.CurrentPrice, stock.MonthlyLow).toFixed(2)}%
-              </td>
-              <td className={`px-6 py-4 whitespace-nowrap text-sm ${getColor(calculatePercentageChange(stock.CurrentPrice, stock.FiftyTwoWeekLow))}`}>
-                {calculatePercentageChange(stock.CurrentPrice, stock.FiftyTwoWeekLow).toFixed(2)}%
-              </td>
+              
             </tr>
           ))}
         </tbody>
